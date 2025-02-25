@@ -46,4 +46,4 @@ jobs:
     steps:
       - run:
           name: deploy-application
-          command: ssh -o StrictHostKeyChecking=no $EWYSE_EC2@$EWYSE_PUBLIC_DNS "rm -rf ExampleApplication/; git clone https://github.com/Wyseyy/ExampleApplication.git; source ExampleApplication/deploy.sh"
+          command: ssh -o StrictHostKeyChecking=no $EWYSE_EC2@$EWYSE_PUBLIC_DNS "rm -rf ExampleApplication/; git clone https://github.com/Wyseyy/ExampleApplication.git; bash ExampleApplication/deploy.sh"
