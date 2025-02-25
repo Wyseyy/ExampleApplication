@@ -9,6 +9,13 @@ workflows:
             branches:
               only:
                 - main
+      - deploy:
+          filters:
+            branches:
+              only:
+                - main
+          requires:
+            - build
 
 
 
@@ -41,4 +48,4 @@ jobs:
     steps:
       - run: 
         name: deploy-application
-        command: ssh -o StrictHostKeyChecking=no %EWYSE_EC2@$EWYSE_PUBLIC_DNS "rn -rf ExampleApplication/;git_clone https://github.com/Wyseyy/ExampleApplication.git; source ExampleApplication/deploy.sh"
+        command: ssh -o StrictHostKeyChecking=no $EWYSE_EC2@$EWYSE_PUBLIC_DNS "rn -rf ExampleApplication/;git_clone https://github.com/Wyseyy/ExampleApplication.git; source ExampleApplication/deploy.sh"
