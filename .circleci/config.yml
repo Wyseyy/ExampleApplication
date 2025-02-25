@@ -35,3 +35,10 @@ jobs:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+  deploy:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - run: 
+        name: deploy-application
+        command: ssh -o StrictHostKeyChecking=no %EWYSE_EC2@$EWYSE_PUBLIC_DNS "rn -rf ExampleApplication/;git_clone https://github.com/Wyseyy/ExampleApplication.git; source ExampleApplication/deploy.sh"
