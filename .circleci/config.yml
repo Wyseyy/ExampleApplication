@@ -46,4 +46,4 @@ jobs:
     steps:
       - run:
           name: deploy-application
-          command: ssh -o StrictHostKeyChecking=no $EWYSE_EC2@$EWYSE_PUBLIC_DNS "export SERVER=\'$SERVER\'; export PRIVATE_KEY=\'$PRIVATE_KEY'; rm -rf ExampleApplication/; git clone https://github.com/Wyseyy/ExampleApplication.git; bash ExampleApplication/deploy.sh"
+          command: ssh -o StrictHostKeyChecking=no $EWYSE_EC2@$EWYSE_PUBLIC_DNS "export SERVER=\"$SERVER\"; export PRIVATE_KEY=\"$PRIVATE_KEY\"; rm -rf ExampleApplication/; git clone https://github.com/Wyseyy/ExampleApplication.git; bash ExampleApplication/deploy.sh"
